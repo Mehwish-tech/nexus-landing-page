@@ -13,7 +13,7 @@ body{
     align-items: center;
     position: sticky;
     gap: 16px;
-    padding: 16px 24px;
+    padding: 16px 64px;
     border: 0 solid #e5e7eb;
     border-bottom: #343434 solid 1px;
 }
@@ -37,7 +37,7 @@ body{
 }
 .navbar .logo .text{
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
 }
 .navbar ul{
@@ -48,8 +48,26 @@ body{
 }
 .navbar ul li a{
     color: rgb(167, 165, 168);
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.navbar ul .get-started
+{
+    padding: 0px;
+}
+.navbar ul .get-started button{
+    background-color: #A65EED;
+    color: #2f134b;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    font-size: 10px;
     font-weight: 400;
+}
+.navbar ul .get-started button:hover{
+    background-color: rgb(48, 0, 78);
+    color: rgb(255, 255, 255);
 }
 .navbar ul li a:hover{
     color: white;
@@ -74,7 +92,7 @@ body{
     font-weight: 700;
 }
 .navbar ul li a{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
 }
 .navbar ul{
@@ -631,23 +649,27 @@ color: #A65EED;
     padding: 8px;
     background-color: #160328;
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-right: 26px;
     width: 200px;
     border: solid 1px #89868a ;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .get-started .container .input button{
-    padding: 8px;
+    padding: 4px;
     background-color: #a65eed;
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-right: 26px;
     width: 150px;
     border: solid 1px #ffffff ;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 400;
+}
+.get-started .container .input button:hover{
+ background-color: rgb(48, 0, 78);
+    color: rgb(255, 255, 255);
 }
 .get-started .container .subscription{
 font-size: 13px;
@@ -663,7 +685,6 @@ word-spacing: 2px;
 }
  .get-started .container{
     padding: 16px;
-    width: 500px;
 }
 .get-started .container .subheading{
 font-size: 13px;
@@ -687,4 +708,147 @@ color: #484848;
 margin-top: 8px;
 word-spacing: 2px;
 }
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 64px;
+    border: 0 solid #e5e7eb;
+    border-top: #343434 solid 1px;
+}
+.footer .teams{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+}
+.footer .teams .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.footer .teams .logo .symbol{
+    color:  rgb(12, 0, 22);
+    background-color: #A65EED;
+    font-size: 18px;
+    font-weight: 700;
+    width: 32px;
+    height: 32px;  
+    padding: 8px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer .teams .logo .text{
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+.footer .teams p{
+    color: rgb(99, 97, 100);
+    font-size: 12px;
+    font-weight: 300;
+    width: 200px;
+}
+.footer .teams .options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+.footer .teams .options a{
+    background-color: #474548;
+    color: #160328;
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    border: none;
+    font-size: 10px;
+    text-align: center;
+    padding: 4px;
+}
+.footer .teams .options a:hover{
+    color: #ffffff;
+    font-weight: 400;
+}
+.footer .items{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+}
+.footer .items h6{
+    color: white;
+    font-weight: 700;
+}
+.footer .items ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+}
+.footer .items ul li{
+    color: rgb(99, 97, 100);
+    font-size: 12px;
+    font-weight: 300;
+    list-style: none;
+}
+@media (max-width: 768px){
+    .footer{
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+    }
+    .footer .teams{
+        align-items: center;
+        text-align: center;
+    }
+    .footer .teams p{
+        width: 100%;
+    }
+     .footer .items ul{
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    }
+    .footer .items{
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 80px;
+    border: 0 solid #e5e7eb;
+    border-top: #343434 solid 1px;
+}
+footer p{
+    color: rgb(99, 97, 100);
+    font-size: 12px;
+    font-weight: 300;
+}
+footer .highlight{
+    color: #A65EED;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    footer{
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+    }
+    footer p{
+        font-size: 13px;
+    }
 }
