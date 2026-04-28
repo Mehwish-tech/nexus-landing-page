@@ -12,10 +12,16 @@ body{
     justify-content: space-between;
     align-items: center;
     position: sticky;
+    top: 0;
+    z-index: 100;
     gap: 16px;
     padding: 16px 64px;
     border: 0 solid #e5e7eb;
     border-bottom: #343434 solid 1px;
+    background-color: rgba(12, 0, 22, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color 0.3s ease;
 }
 .navbar .logo{
     display: flex;
@@ -59,15 +65,19 @@ body{
 .navbar ul .get-started button{
     background-color: #A65EED;
     color: #2f134b;
-    padding: 8px;
+    padding: 8px 16px;
     border: none;
     border-radius: 15px;
     font-size: 10px;
-    font-weight: 400;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 .navbar ul .get-started button:hover{
     background-color: rgb(48, 0, 78);
     color: rgb(255, 255, 255);
+    box-shadow: 0 0 12px #a65eed55;
 }
 .navbar ul li a:hover{
     color: white;
@@ -123,26 +133,43 @@ body{
     font-size: 12px;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 .hero .hero_content .heading{
     font-size: 88px;
     font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 40%, #A65EED 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.05;
 }
 .hero .hero_content .description{
-    color: rgb(106, 104, 106);
-    font-size: 16px;
-    font-weight: 400;
-    width: 400px;
+    color: rgb(140, 138, 140);
+    font-size: 17px;
+    font-weight: 300;
+    width: 420px;
+    line-height: 1.7;
 }
 .hero .hero_content .features{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 13px;
+    font-weight: 400;
     color: #A65EED;
+    margin-top: 8px;
+}
+.hero .hero_content .features span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.hero .hero_content .features span::before {
+    content: '✦';
+    font-size: 8px;
+    opacity: 0.7;
 }
 @media (max-width: 768px) {
     .hero{
@@ -190,13 +217,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px ;
-    gap: 40px;
-    color: rgb(99, 97, 100);
+    font-size: 13px;
+    gap: 48px;
+    color: rgb(80, 78, 82);
+}
+.companies .company_names h3{
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    cursor: default;
 }
 .companies .company_names h3:hover{
-    color: #89868a;
-    font-weight: 300px;
+    color: #A65EED;
+    text-shadow: 0 0 12px #a65eed55;
 }
 @media (max-width: 786px){
     .companies{
@@ -261,6 +295,7 @@ body{
     padding: 24px;
     gap: 8px;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 .capabilities .container #card1 {
     grid-column: span 2;
@@ -296,12 +331,11 @@ body{
     font-weight: 400;
 }
 .capabilities .container .card:hover {
-border: #A65EED solid 1px;
-box-shadow: 0 0 2px #a65eed,
-            0 0 4px #a65eed,
-            0 0 8px #a65eed;
-            cursor:pointer;
-            transform: translateY(-5px);
+    border: #A65EED solid 1px;
+    box-shadow: 0 0 4px #a65eed,
+                0 0 16px #a65eed33;
+    cursor: pointer;
+    transform: translateY(-5px);
 }
 
 /* ============================================
@@ -536,13 +570,18 @@ font-size: 40px;
     align-items: flex-start;
     gap: 14px;
     border: #474548 solid 1px;
+    border-left: #A65EED solid 3px;
     border-radius: 5px;
     background-color: #17111e;
     width: 350px;
     min-height: 100px;
-    padding:16px;
+    padding: 20px;
     text-align: left;
-    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.social-proof .container .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px #a65eed22;
 }
 .social-proof .container .card p{
      color: rgb(145, 145, 146);
@@ -610,24 +649,53 @@ color: rgb(106, 104, 106);
 }
 .pricing .container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: stretch;
     gap: 24px;
+    margin-top: 24px;
 }
 .pricing .container .card{
-    flex: 1; /* Teeno cards barabar jagah lenge */
-    max-width: 600px; /* Ek limit set karein */
-    padding: 40px; /* Inside spacing barhaein */
+    flex: 1;
+    max-width: 600px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     text-align: left;
-    border: #a65eed solid 1px;
-    border-radius: 5px;
+    border: #343434 solid 1px;
+    border-radius: 8px;
     background-color: rgb(10, 0, 16);
-    box-shadow: 0px 0px 12px 2px #2f134b;
     gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pricing .container .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px #a65eed22;
+}
+.pricing .container #pro {
+    border: #A65EED solid 1px;
+    background: linear-gradient(160deg, #130028 0%, rgb(10, 0, 16) 60%);
+    box-shadow: 0 0 32px #a65eed22;
+    transform: scale(1.03);
+    position: relative;
+}
+.pricing .container #pro::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #A65EED;
+    color: #1a0035;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+.pricing .container #pro:hover {
+    transform: scale(1.03) translateY(-4px);
 }
 .pricing .container .card .heading{
     color: white;
@@ -653,11 +721,16 @@ flex-direction: column;
 }
 
 .pricing .container .card ul li{
-    
-    list-style:disc;
-    color: rgb(102, 101, 103);
-    font-size: 12px;
+    list-style: none;
+    color: rgb(160, 158, 162);
+    font-size: 13px;
     font-weight: 300;
+    padding-left: 4px;
+}
+.pricing .container .card ul li::before {
+    content: '✓ ';
+    color: #A65EED;
+    font-weight: 600;
 }
 .pricing .container button{
     padding: 12px;
@@ -667,14 +740,17 @@ flex-direction: column;
     border: none;
     border-radius: 7px;
     cursor: pointer;
-     font-weight: bold;
-     margin-top: auto;
+    font-weight: bold;
+    margin-top: auto;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
 }
 .pricing .container button:hover{
     background-color: rgb(48, 0, 78);
     color: rgb(255, 255, 255);
     font-weight: bold;
     border: white solid 1px;
+    box-shadow: 0 0 16px #a65eed55;
 }
 @media (max-width: 786px){
     .pricing {
