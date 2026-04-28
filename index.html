@@ -56,37 +56,237 @@
                 <p class="subheading">L1 // System Core</p>
                 <h2 class="heading">Smart Automation</h2>
                 <p class="description">Deploy custom logic gates to handle repetitive tasks at scale</p>
-                                    <img class="image" src="assets/images/System Core.jpg" alt="">
-                        </div>
+                <!-- ANIMATION: Smart Automation - logic gates / circuit nodes -->
+                <div class="card-animation" id="anim-automation">
+                    <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="glow-purple">
+                                <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Grid lines -->
+                        <line x1="0" y1="40" x2="320" y2="40" stroke="#A65EED" stroke-width="0.3" opacity="0.2"/>
+                        <line x1="0" y1="80" x2="320" y2="80" stroke="#A65EED" stroke-width="0.3" opacity="0.2"/>
+                        <line x1="0" y1="120" x2="320" y2="120" stroke="#A65EED" stroke-width="0.3" opacity="0.2"/>
+                        <line x1="80" y1="0" x2="80" y2="160" stroke="#A65EED" stroke-width="0.3" opacity="0.2"/>
+                        <line x1="160" y1="0" x2="160" y2="160" stroke="#A65EED" stroke-width="0.3" opacity="0.2"/>
+                        <line x1="240" y1="0" x2="240" y2="160" stroke="#A65EED" stroke-width="0.3" opacity="0.2"/>
+                        <!-- Flowing lines -->
+                        <path d="M0 80 Q60 80 80 60 Q100 40 160 40 Q220 40 240 80 Q260 120 320 120" fill="none" stroke="#A65EED" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5" class="anim-dash"/>
+                        <path d="M0 40 Q40 40 80 80 Q120 120 160 80 Q200 40 240 60 Q280 80 320 60" fill="none" stroke="#7b3dd1" stroke-width="1" stroke-dasharray="4 6" opacity="0.35" class="anim-dash-rev"/>
+                        <!-- Logic gate nodes -->
+                        <g filter="url(#glow-purple)">
+                            <circle cx="80" cy="80" r="6" fill="#A65EED" class="pulse-node"/>
+                            <circle cx="160" cy="40" r="6" fill="#A65EED" class="pulse-node" style="animation-delay:0.4s"/>
+                            <circle cx="240" cy="80" r="6" fill="#A65EED" class="pulse-node" style="animation-delay:0.8s"/>
+                            <circle cx="160" cy="120" r="4" fill="#7b3dd1" class="pulse-node" style="animation-delay:1.2s"/>
+                            <circle cx="80" cy="40" r="3" fill="#A65EED" opacity="0.6" class="pulse-node" style="animation-delay:0.2s"/>
+                            <circle cx="240" cy="120" r="3" fill="#A65EED" opacity="0.6" class="pulse-node" style="animation-delay:1.0s"/>
+                        </g>
+                        <!-- Gate rectangles -->
+                        <rect x="140" y="28" width="40" height="24" rx="4" fill="none" stroke="#A65EED" stroke-width="1" opacity="0.4"/>
+                        <rect x="220" y="68" width="40" height="24" rx="4" fill="none" stroke="#A65EED" stroke-width="1" opacity="0.4"/>
+                        <!-- Signal pulse dot -->
+                        <circle r="4" fill="#fff" opacity="0.9" class="signal-dot">
+                            <animateMotion dur="2.5s" repeatCount="indefinite">
+                                <mpath href="#signal-path"/>
+                            </animateMotion>
+                        </circle>
+                        <path id="signal-path" d="M0 80 Q60 80 80 60 Q100 40 160 40 Q220 40 240 80 Q260 120 320 120" fill="none"/>
+                    </svg>
+                </div>
+            </div>
             <div class="card" id="card2">
                 <p class="subheading">L3 // Data layer</p>
                 <h2 class="heading">Cloud Sync</h2>
                 <p class="description">12ms sync latency across distributed nodes.</p>
-                    <img class="image" src="assets/images/Data-layer.jpg" alt="">
+                <!-- ANIMATION: Cloud Sync - orbiting nodes -->
+                <div class="card-animation" id="anim-sync">
+                    <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="glow-sync">
+                                <feGaussianBlur stdDeviation="3" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Orbit rings -->
+                        <ellipse cx="140" cy="75" rx="100" ry="40" fill="none" stroke="#A65EED" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 4"/>
+                        <ellipse cx="140" cy="75" rx="65" ry="28" fill="none" stroke="#A65EED" stroke-width="0.8" opacity="0.2" stroke-dasharray="3 5"/>
+                        <!-- Center cloud node -->
+                        <circle cx="140" cy="75" r="14" fill="#1a0a2e" stroke="#A65EED" stroke-width="1.5" filter="url(#glow-sync)"/>
+                        <text x="140" y="79" text-anchor="middle" fill="#A65EED" font-size="11" font-family="Inter,sans-serif">⟳</text>
+                        <!-- Orbiting dots -->
+                        <circle r="5" fill="#A65EED" filter="url(#glow-sync)">
+                            <animateMotion dur="3s" repeatCount="indefinite">
+                                <mpath href="#orbit1"/>
+                            </animateMotion>
+                        </circle>
+                        <circle r="4" fill="#7b3dd1">
+                            <animateMotion dur="3s" begin="-1s" repeatCount="indefinite">
+                                <mpath href="#orbit1"/>
+                            </animateMotion>
+                        </circle>
+                        <circle r="3" fill="#A65EED" opacity="0.7">
+                            <animateMotion dur="4.5s" begin="-0.5s" repeatCount="indefinite">
+                                <mpath href="#orbit2"/>
+                            </animateMotion>
+                        </circle>
+                        <circle r="3" fill="#7b3dd1" opacity="0.5">
+                            <animateMotion dur="4.5s" begin="-2.2s" repeatCount="indefinite">
+                                <mpath href="#orbit2"/>
+                            </animateMotion>
+                        </circle>
+                        <path id="orbit1" d="M 240,75 A 100,40 0 1,0 240,74.9" fill="none"/>
+                        <path id="orbit2" d="M 205,75 A 65,28 0 1,0 205,74.9" fill="none"/>
+                        <!-- Data packets -->
+                        <rect x="94" y="70" width="8" height="5" rx="1" fill="#A65EED" opacity="0.4" class="packet-blink"/>
+                        <rect x="175" y="73" width="8" height="5" rx="1" fill="#A65EED" opacity="0.4" class="packet-blink" style="animation-delay:0.7s"/>
+                        <!-- Latency label -->
+                        <text x="140" y="130" text-anchor="middle" fill="#A65EED" font-size="9" font-family="Inter,sans-serif" opacity="0.6" letter-spacing="1">12ms LATENCY</text>
+                    </svg>
+                </div>
             </div>
             <div class="card" id="card3">
                 <p class="subheading">L3 // Security</p>
                 <h2 class="heading">Secure Storage</h2>
                 <p class="description">AES-256 encryption at rest and in transit.</p>
-                    <img class="image" src="assets/images/Security.jpg" alt="">
+                <!-- ANIMATION: Security - lock shield with scanning effect -->
+                <div class="card-animation" id="anim-security">
+                    <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="glow-sec">
+                                <feGaussianBlur stdDeviation="3" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                            <clipPath id="shield-clip">
+                                <path d="M140 20 L185 38 L185 90 Q185 125 140 138 Q95 125 95 90 L95 38 Z"/>
+                            </clipPath>
+                        </defs>
+                        <!-- Shield body -->
+                        <path d="M140 20 L185 38 L185 90 Q185 125 140 138 Q95 125 95 90 L95 38 Z" fill="#0d0020" stroke="#A65EED" stroke-width="1.5" filter="url(#glow-sec)"/>
+                        <path d="M140 28 L178 44 L178 90 Q178 118 140 130 Q102 118 102 90 L102 44 Z" fill="none" stroke="#A65EED" stroke-width="0.5" opacity="0.4"/>
+                        <!-- Scan line -->
+                        <line x1="95" y1="79" x2="185" y2="79" stroke="#A65EED" stroke-width="1.5" opacity="0.8" clip-path="url(#shield-clip)" class="scan-line"/>
+                        <!-- Lock icon -->
+                        <rect x="128" y="78" width="24" height="18" rx="3" fill="#A65EED" filter="url(#glow-sec)"/>
+                        <path d="M133 78 L133 72 Q133 64 140 64 Q147 64 147 72 L147 78" fill="none" stroke="#A65EED" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="140" cy="87" r="3" fill="#0d0020"/>
+                        <!-- Corner hex badges -->
+                        <text x="38" y="75" fill="#A65EED" font-size="8" font-family="Inter,sans-serif" opacity="0.5" letter-spacing="0.5">AES</text>
+                        <text x="38" y="85" fill="#A65EED" font-size="8" font-family="Inter,sans-serif" opacity="0.5">256</text>
+                        <text x="216" y="75" fill="#A65EED" font-size="8" font-family="Inter,sans-serif" opacity="0.5">END</text>
+                        <text x="214" y="85" fill="#A65EED" font-size="8" font-family="Inter,sans-serif" opacity="0.5">TO END</text>
+                        <!-- Dots pattern -->
+                        <circle cx="55" cy="50" r="1.5" fill="#A65EED" opacity="0.3" class="pulse-node" style="animation-delay:0s"/>
+                        <circle cx="70" cy="110" r="1.5" fill="#A65EED" opacity="0.3" class="pulse-node" style="animation-delay:0.5s"/>
+                        <circle cx="210" cy="50" r="1.5" fill="#A65EED" opacity="0.3" class="pulse-node" style="animation-delay:1s"/>
+                        <circle cx="220" cy="110" r="1.5" fill="#A65EED" opacity="0.3" class="pulse-node" style="animation-delay:1.5s"/>
+                    </svg>
+                </div>
             </div>
             <div class="card" id="card4">
                 <p class="subheading">L2 // Multiplayer</p>   
                 <h2 class="heading">Real time Collaboration</h2>
                 <p class="description">Concurrent editing with conflict-free replicated data types.</p>
-                    <img class="image" src="assets/images/Multiplayer.jpg" alt="">
+                <!-- ANIMATION: Collaboration - multiple cursors / shared editing -->
+                <div class="card-animation" id="anim-collab">
+                    <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Doc background -->
+                        <rect x="40" y="15" width="240" height="100" rx="6" fill="#0d0020" stroke="#343434" stroke-width="1"/>
+                        <!-- Text lines -->
+                        <rect x="56" y="30" width="140" height="5" rx="2" fill="#2a1545" opacity="0.8"/>
+                        <rect x="56" y="42" width="180" height="5" rx="2" fill="#2a1545" opacity="0.8"/>
+                        <rect x="56" y="54" width="110" height="5" rx="2" fill="#2a1545" opacity="0.8"/>
+                        <rect x="56" y="66" width="160" height="5" rx="2" fill="#2a1545" opacity="0.8"/>
+                        <rect x="56" y="78" width="90" height="5" rx="2" fill="#2a1545" opacity="0.8"/>
+                        <!-- Highlighted selection (user 1) -->
+                        <rect x="56" y="38" width="100" height="13" rx="2" fill="#A65EED" opacity="0.15"/>
+                        <!-- User cursor 1 - purple -->
+                        <g class="cursor-1">
+                            <polygon points="160,40 160,52 163,48 166,54 168,53 165,47 169,47" fill="#A65EED" opacity="0.9"/>
+                            <rect x="161" y="53" width="28" height="10" rx="2" fill="#A65EED"/>
+                            <text x="164" y="61" fill="white" font-size="6" font-family="Inter,sans-serif">Sarah</text>
+                        </g>
+                        <!-- User cursor 2 - teal -->
+                        <g class="cursor-2">
+                            <polygon points="100,62 100,74 103,70 106,76 108,75 105,69 109,69" fill="#3dcfb0" opacity="0.9"/>
+                            <rect x="101" y="75" width="30" height="10" rx="2" fill="#3dcfb0"/>
+                            <text x="104" y="83" fill="#0d0020" font-size="6" font-family="Inter,sans-serif">Marcus</text>
+                        </g>
+                        <!-- User cursor 3 - pink -->
+                        <g class="cursor-3">
+                            <polygon points="220,70 220,82 223,78 226,84 228,83 225,77 229,77" fill="#ed5fa3" opacity="0.9"/>
+                            <rect x="221" y="83" width="24" height="10" rx="2" fill="#ed5fa3"/>
+                            <text x="224" y="91" fill="white" font-size="6" font-family="Inter,sans-serif">Emily</text>
+                        </g>
+                        <!-- Typing caret blink -->
+                        <line x1="237" y1="68" x2="237" y2="76" stroke="#ed5fa3" stroke-width="1.5" class="caret-blink"/>
+                        <!-- Live badge -->
+                        <circle cx="263" cy="21" r="4" fill="#3dcfb0" class="live-dot"/>
+                        <text x="270" y="25" fill="#3dcfb0" font-size="7" font-family="Inter,sans-serif" letter-spacing="0.5">LIVE</text>
+                    </svg>
+                </div>
             </div>
             <div class="card" id="card5">
                 <p class="subheading">L3 // Intelligence</p>   
                 <h2 class="heading">Analytic Dashboard</h2>
                 <p class="description">Track every metric that matters. Zero-config observability.</p>
-                    <img class="image" src="assets/images/Intelligence.jpg" alt="">
+                <!-- ANIMATION: Analytics - animated bar/line chart -->
+                <div class="card-animation" id="anim-analytics">
+                    <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Chart base -->
+                        <line x1="40" y1="100" x2="290" y2="100" stroke="#343434" stroke-width="1"/>
+                        <line x1="40" y1="100" x2="40" y2="20" stroke="#343434" stroke-width="1"/>
+                        <!-- Grid lines -->
+                        <line x1="40" y1="75" x2="290" y2="75" stroke="#343434" stroke-width="0.5" stroke-dasharray="3 3"/>
+                        <line x1="40" y1="50" x2="290" y2="50" stroke="#343434" stroke-width="0.5" stroke-dasharray="3 3"/>
+                        <line x1="40" y1="25" x2="290" y2="25" stroke="#343434" stroke-width="0.5" stroke-dasharray="3 3"/>
+                        <!-- Bars -->
+                        <rect x="55" y="65" width="22" height="35" rx="3" fill="#A65EED" opacity="0.5" class="bar-grow" style="transform-origin: 66px 100px; animation-delay:0s"/>
+                        <rect x="90" y="45" width="22" height="55" rx="3" fill="#A65EED" opacity="0.6" class="bar-grow" style="transform-origin: 101px 100px; animation-delay:0.1s"/>
+                        <rect x="125" y="55" width="22" height="45" rx="3" fill="#A65EED" opacity="0.5" class="bar-grow" style="transform-origin: 136px 100px; animation-delay:0.2s"/>
+                        <rect x="160" y="30" width="22" height="70" rx="3" fill="#A65EED" opacity="0.7" class="bar-grow" style="transform-origin: 171px 100px; animation-delay:0.3s"/>
+                        <rect x="195" y="40" width="22" height="60" rx="3" fill="#A65EED" opacity="0.6" class="bar-grow" style="transform-origin: 206px 100px; animation-delay:0.4s"/>
+                        <rect x="230" y="22" width="22" height="78" rx="3" fill="#A65EED" opacity="0.9" class="bar-grow" style="transform-origin: 241px 100px; animation-delay:0.5s"/>
+                        <rect x="265" y="35" width="22" height="65" rx="3" fill="#A65EED" opacity="0.7" class="bar-grow" style="transform-origin: 276px 100px; animation-delay:0.6s"/>
+                        <!-- Trend line -->
+                        <polyline points="66,65 101,45 136,55 171,30 206,40 241,22 276,35" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="200" stroke-dashoffset="0" class="line-draw" opacity="0.6"/>
+                        <!-- Dots on line -->
+                        <circle cx="171" cy="30" r="3" fill="#fff" opacity="0.9"/>
+                        <circle cx="241" cy="22" r="3" fill="#fff" opacity="0.9"/>
+                        <!-- Metric labels -->
+                        <text x="165" y="115" text-anchor="middle" fill="#A65EED" font-size="8" font-family="Inter,sans-serif" opacity="0.6">↑ 42% this quarter</text>
+                    </svg>
+                </div>
             </div>
             <div class="card" id="card6">
                 <p class="subheading">L3 // Operations</p>
                 <h2 class="heading">24/7 Support</h2>
                 <p class="description">99.99% uptime SLA with sub-minute incident response.</p>
-                    <img class="image" src="assets/images/Intelligence.jpg" alt="">
+                <!-- ANIMATION: Support / uptime - heartbeat pulse -->
+                <div class="card-animation" id="anim-support">
+                    <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="glow-green">
+                                <feGaussianBlur stdDeviation="3" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Flat baseline -->
+                        <polyline points="20,70 60,70 80,70 95,70 100,30 108,100 114,50 120,70 160,70 175,70 180,40 188,90 194,55 200,70 240,70 260,70" fill="none" stroke="#3dcfb0" stroke-width="2" filter="url(#glow-green)" class="heartbeat-line"/>
+                        <polyline points="260,70 300,70" fill="none" stroke="#3dcfb0" stroke-width="2" opacity="0.4"/>
+                        <!-- Pulse circle -->
+                        <circle cx="200" cy="70" r="6" fill="none" stroke="#3dcfb0" stroke-width="1.5" opacity="0.6" class="ripple-1"/>
+                        <circle cx="200" cy="70" r="4" fill="#3dcfb0" filter="url(#glow-green)"/>
+                        <!-- Status items -->
+                        <circle cx="50" cy="105" r="4" fill="#3dcfb0" class="live-dot"/>
+                        <text x="59" y="109" fill="#3dcfb0" font-size="8" font-family="Inter,sans-serif">All Systems Operational</text>
+                        <!-- Uptime badge -->
+                        <rect x="220" y="98" width="72" height="18" rx="4" fill="#0d2b1f" stroke="#3dcfb0" stroke-width="0.8"/>
+                        <text x="256" y="110" text-anchor="middle" fill="#3dcfb0" font-size="8" font-family="Inter,sans-serif" letter-spacing="0.5">99.99% UPTIME</text>
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
