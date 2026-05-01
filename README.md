@@ -28,7 +28,7 @@ Nexus is a concept landing page for a productivity SaaS platform. It was designe
 
 - HTML5
 - CSS3 (Flexbox and Grid)
-- No frameworks — pure HTML and CSS only
+- javascript
 
 ---
 
