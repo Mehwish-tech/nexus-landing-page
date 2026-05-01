@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 body{
     background-color: rgb(12, 0, 22);
     font-family: 'Inter', sans-serif;
@@ -52,14 +55,37 @@ body{
     align-items: center;
     gap: 32px;
 }
+.navbar ul li{
+    list-style: none;
+}
 .navbar ul li a{
     color: rgb(167, 165, 168);
     font-size: 12px;
     font-weight: 300;
     letter-spacing: 1px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.25s ease;
 }
-.navbar ul .get-started
-{
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #A65EED;
+    transition: width 0.3s ease;
+}
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+.navbar ul li a:hover{
+    color: white;
+    font-weight: 400;
+}
+.navbar ul .get-started {
     padding: 0px;
 }
 .navbar ul .get-started button{
@@ -78,10 +104,6 @@ body{
     background-color: rgb(48, 0, 78);
     color: rgb(255, 255, 255);
     box-shadow: 0 0 12px #a65eed55;
-}
-.navbar ul li a:hover{
-    color: white;
-    font-weight: 500;
 }
 @media (max-width: 768px){
 .navbar{
@@ -118,6 +140,17 @@ body{
     padding: 64px;
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 .hero .hero_content {
     max-width: 600px;
@@ -127,6 +160,8 @@ body{
     justify-content: center;
     align-items: center;
     gap: 16px;
+    position: relative;
+    z-index: 1;
 }
 .hero .hero_content .subheading{
     color: #A65EED;
@@ -144,12 +179,63 @@ body{
     background-clip: text;
     line-height: 1.05;
 }
+/* Typewriter cursor */
+.typewriter {
+    border-right: 3px solid #A65EED;
+    padding-right: 4px;
+    animation: blink-cursor 0.75s step-end infinite;
+    -webkit-text-fill-color: #A65EED;
+}
+@keyframes blink-cursor {
+    0%, 100% { border-color: #A65EED; }
+    50%       { border-color: transparent; }
+}
 .hero .hero_content .description{
     color: rgb(140, 138, 140);
     font-size: 17px;
     font-weight: 300;
     width: 420px;
     line-height: 1.7;
+}
+/* Hero buttons */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 8px;
+}
+.btn-primary {
+    background-color: #A65EED;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #8b3fd4;
+    box-shadow: 0 0 24px #a65eed66;
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background-color: transparent;
+    color: rgb(180, 178, 180);
+    border: 1px solid #343434;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+    border-color: #A65EED;
+    color: #A65EED;
+    transform: translateY(-2px);
 }
 .hero .hero_content .features{
     display: flex;
@@ -188,6 +274,11 @@ body{
 .hero .hero_content .description{
     font-size: 16px;
     font-weight: 400;
+    width: 100%;
+}
+.hero-buttons {
+    flex-direction: column;
+    gap: 12px;
 }
 .hero .hero_content .features{
     gap: 20px;
@@ -780,13 +871,16 @@ flex-direction: column;
     gap: 20px;
 }
 .pricing .container .card{
-    flex: 1; /* Teeno cards barabar jagah lenge */
-    max-width: 300px; /* Ek limit set karein */
-    padding: 16px 24px; /* Inside spacing barhaein */
+    flex: 1;
+    max-width: 100%;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border: #a65eed solid 1px;
+}
+.pricing .container #pro {
+    transform: scale(1);
 }
 .pricing .container .card .heading{
     color: white;
@@ -983,19 +1077,28 @@ word-spacing: 2px;
     gap: 8px;
 }
 .footer .teams .options a{
-    background-color: #474548;
-    color: #160328;
-    border-radius: 100%;
-    width: 24px;
-    height: 24px;
-    border: none;
+    background-color: #2a1a3e;
+    color: #a09aaa;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #474548;
     font-size: 10px;
-    text-align: center;
-    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.25s ease;
 }
 .footer .teams .options a:hover{
+    background-color: #A65EED;
     color: #ffffff;
-    font-weight: 400;
+    border-color: #A65EED;
+    box-shadow: 0 0 10px #a65eed55;
+    transform: translateY(-2px);
+}
+.footer .teams .options a svg {
+    fill: currentColor;
 }
 .footer .items{
     display: flex;
@@ -1079,6 +1182,14 @@ footer .highlight{
 /* ============================================
    SCROLL ANIMATIONS
    ============================================ */
+
+/* Navbar active link */
+.navbar ul li a.active {
+    color: white;
+}
+.navbar ul li a.active::after {
+    width: 100%;
+}
 
 /* Base hidden states */
 .fade-up {
